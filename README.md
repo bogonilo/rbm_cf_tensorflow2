@@ -1,5 +1,5 @@
 ## RBM for Collaborative Filtering with Tensorflow 2
-Implementation of Collaborative Filtering algorithm with RBM and Tensorflow 2.
+Implementation of Collaborative Filtering algorithm with Restricted Boltzmann Machine and Tensorflow 2.
 
 This implementation is based on the one found in cognitiveclass.ai, https://cognitiveclass.ai/courses/deep-learning-tensorflow ML0120ENv2, 
 Deep Learning with Tensorflow, in the lab of the section Restricted Boltzmann Machines: COLLABORATIVE FILTERING WITH RBM.
