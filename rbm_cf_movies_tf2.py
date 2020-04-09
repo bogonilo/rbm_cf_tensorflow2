@@ -29,18 +29,18 @@ def draw_sample_v1(h0, W, vb): #v1
     v1_prob = tf.nn.sigmoid(tf.matmul(h0, tf.transpose(W)) + vb)
     return tf.nn.relu(tf.sign(v1_prob - tf.random.uniform(tf.shape(v1_prob)))) # sampling from visible units distribution
 
-def calculate_h1(v1,W,hb): #h1
+def calculate_h1(v1, W, hb): #h1
     return tf.nn.sigmoid(tf.matmul(v1, W) + hb) # correspondent hidden units
 
 # Calculate Contrastive Divergence
-def calculate_CD(v0,h0,v1,h1): #CD
+def calculate_CD(v0, h0, v1, h1): #CD
     w_pos_grad = tf.matmul(tf.transpose(v0), h0)
     w_neg_grad = tf.matmul(tf.transpose(v1), h1)
     # Calculate the Contrastive Divergence to maximize
     return (w_pos_grad - w_neg_grad) / tf.cast(tf.shape(v0)[0], dtype=tf.float32)
 
 # Calculate reconstruction error
-def calculate_error_sum(v0,v1): #err_sum
+def calculate_error_sum(v0, v1): #err_sum
     err = v0 - v1
     return tf.reduce_mean(err * err)
 
